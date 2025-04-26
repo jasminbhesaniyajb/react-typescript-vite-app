@@ -1,9 +1,9 @@
 import React from "react";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "../sheet";
-import { Button } from "../button";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Button } from "../ui/button";
 import { Sidebar } from "./sidebar";
-import { Avatar, AvatarFallback } from "../avatar";
+import { Avatar, AvatarFallback } from "../ui/avatar";
 
 export const Header = () => {
   return (

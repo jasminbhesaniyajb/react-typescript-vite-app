@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "../components/theme-provider";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../components/ui/dropdown-menu";
-import { Button } from "../components/ui/button";
-import { Check } from "lucide-react";
 import { ToggleGroup, ToggleGroupItem } from "../components/ui/toggle-group";
 
 const themes = [
@@ -34,32 +26,6 @@ function Theme() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">Theme Settings</h1>
-      {/* <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="sm">
-            Select Theme
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          {themes.map((t) => (
-            <DropdownMenuItem
-              key={t.value}
-              onClick={() => setTheme(t.value as any)}
-              className="flex items-center justify-between"
-            >
-              <div className="flex items-center gap-2">
-                <div
-                  className="h-4 w-4 rounded-full"
-                  style={{ backgroundColor: t.color }}
-                />
-                <span>{t.name}</span>
-              </div>
-              {theme === t.value && <Check className="h-4 w-4" />}
-            </DropdownMenuItem>
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu> */}
-
       <ToggleGroup
         type="single"
         value={theme}
