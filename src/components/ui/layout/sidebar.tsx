@@ -4,8 +4,8 @@ import { Palette, CheckSquare, Users } from "lucide-react";
 
 const menuItems = [
   { title: "Theme", icon: <Palette className="h-5 w-5" />, path: "/theme" },
-  { title: "To-Do List", icon: <CheckSquare className="h-5 w-5" />, path: "/todo" },
   { title: "Students", icon: <Users className="h-5 w-5" />, path: "/students" },
+  { title: "To-Do List", icon: <CheckSquare className="h-5 w-5" />, path: "/todo" },
 ];
 
 export const Sidebar = () => {
