@@ -11,3 +11,16 @@ export type ThemeProviderState = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
 };
+
+export type Student = {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+  mobile: string
+  studentClass: "A" | "B" | "C"
+}
+
+export interface StudentsTableProps {
+  students: Student[]
+}
