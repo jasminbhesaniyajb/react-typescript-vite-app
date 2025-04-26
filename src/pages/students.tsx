@@ -17,11 +17,13 @@ import {
   TableRow,
 } from "../components/ui/table";
 import { Student } from "../types";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 function Students() {
   const [open, setOpen] = useState<boolean>(false);
   const [students, setStudents] = useState<Student[]>([]);
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
 
   const handleAddStudent = (data: StudentFormValues) => {
     if (editingStudent) {
@@ -50,6 +52,18 @@ function Students() {
     setStudents((prev) => prev.filter((student) => student.id !== id));
   };
 
+  const handleSort = () => {
+    const sorted = [...students].sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.firstName.localeCompare(b.firstName)
+      } else {
+        return b.firstName.localeCompare(a.firstName)
+      }
+    })
+    setStudents(sorted)
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
+  }
+
   return (
     <div>
       <div className="flex justify-between items-center">
@@ -71,7 +85,16 @@ function Students() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>First Name</TableHead>
+            <TableHead className="cursor-pointer" onClick={handleSort}>
+                <div className="flex items-center gap-1">
+                  First Name
+                  {sortOrder === 'asc' ? (
+                    <ArrowUp size={16} />
+                  ) : (
+                    <ArrowDown size={16} />
+                  )}
+                </div>
+              </TableHead>
               <TableHead>Last Name</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Mobile</TableHead>
